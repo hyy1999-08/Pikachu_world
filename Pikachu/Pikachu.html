@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<link href="Pikachu.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <title>Pikachu</title>
+  </head>
+
+	<!--	Create the HTML5 'canvas' element in which we will run WebGL  -->
+  <body onload="main()">
+		<div id="body_box">
+			<div id="canvas_box">
+				<canvas id="webgl" width="600" height="600"></canvas>
+		
+			</div>
+			
+			<div id="display_box">
+				<hr> <!-- Draw a horizontal-line separator------------->
+				<!-- Make a 'div' element to hold changeable HTML made in our JavaScript file;
+					 (where? look inside main(), inside its 'tick()' function, where we
+					 display the 'current angle' value.
+				-->
+
+				 <!-- 这里是鼠标键盘控制------------->
+			
+				Try keyboard & mouse click/drag inside the canvas, and:
+				<br>
+				<span id='KeyDownResult'  > </span> <!-- myKeyDown() modifies this span object -->		
+				<br>
+				<span id='KeyModResult'   >  </span> <!-- myKeyDown() modifies this span object -->
+				<br>
+				<span id='MouseAtResult'  >  Are you calling me? </span> <!-- myMouseMove() modifies this span object -->
+	
+				<!--  Mouse click/drag amounts.  Look in 'console' for event reports;
+						the 'clear' button calls Javascript function 'clearDrag()'
+						whose sole purpose is to set global vars xMdragTot,yMdragTot ==0.0
+					Note we use these totals to rotate the triangle at upper left.
+				-->
+				<!-- This for CVV Mouse drag
+						<div id='Mouse'> Mouse Drag totals (CVV coords) </div>
+				<button type="button" onClick='clearDrag()'>Clear</button>
+				-->
+				<br>
+				<br>
+				<span>This is for the model in the middle</span>
+				
+				<p>
+					<!--BUTTONS: commands below create HTML push-buttons with labels
+						Spin <<, runStop, and Spin >>.  
+					When users click the button, HTML calls JavaScript functions
+						"spinDown()", "runStop()" and "spinUp()"   -->
+
+				<button type="button" onclick="spinDown()">Speed << </button>
+				<button type="button" onclick="runStop()">Run/Stop</button>
+				<button type="button" onclick="spinUp()">Speed >> </button>
+				</p>
+				<div id="CurAngleDisplay"></div> 
+				<br>	<!-- for g_angle03 -->
+				<br>	<!-- for g_angle05 -->
+			</div>
+			
+			<div id="MiniModel_box">
+				<hr> <!-- Draw a horizontal-line separator------------->
+			<p>This is for MiniModel in the top left corner</p>
+			<div id="CurAngleDisplayForMiniModel"></div> 
+			<br>
+			<!-- Next, make a simple block of text 
+			-->
+			New Current Angle (-180 < x < +180 deg): 
+			<!-- Next, make an HTML 'input' box element, a text-box 10 chars wide where users
+				can type in text.  Give it an ID name so that our JavaScript program
+				(e.g. ControlMulti.js, loaded near the end of this file) can access this
+				HTML element by name in the 'tick' function.
+			-->
+			<input id='usrAngle' size=10> 
+			<button type="button" onClick='angleSubmit()'>Submit</button><BR> 
+			<div id= EditBoxOut></div>
+			<p>
+				<!--BUTTONS: commands below create HTML push-buttons with labels
+					Spin <<, runStop, and Spin >>.  
+				When users click the button, HTML calls JavaScript functions
+					"spinDown()", "runStop()" and "spinUp()"   -->
+			  <button type="button" onclick="spinDownForMiniModel()">Spin << </button>
+			  <button type="button" onclick="runStopForMiniModel()">Run/Stop</button>
+			  <button type="button" onclick="spinUpForMiniModel()">Spin >> </button>
+			</p>
+			</div>
+	
+		</div>
+    <script src="./lib/webgl-utils.js"></script>
+    <script src="./lib/webgl-debug.js"></script>
+    <script src="./lib/cuon-utils.js"></script>
+    <script src="./lib/cuon-matrix-quat03.js"></script>
+	<!--	Finally, load in our own JavaScript program file.
+	-->
+    <script src="./Pikachu.js"></script>
+  </body>
+</html>

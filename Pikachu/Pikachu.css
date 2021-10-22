@@ -1,0 +1,28 @@
+#body_box{
+width: 1050px;
+height: 600px;
+
+}
+#canvas_box{
+float: left;
+
+width: 600px;
+height: 600px;
+}
+#display_box{
+position: relative;
+float: right;
+width: 400px;
+height: 280px;
+}
+#CurAngleDisplay{
+width: 400px;
+height: 50px;
+}
+#MiniModel_box{
+    position: relative;
+    float: right;
+    top:30px;
+    width: 400px;
+    height: 100px;
+}
